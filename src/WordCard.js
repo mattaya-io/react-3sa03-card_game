@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import _ from 'lodash'
 import CharacterCard from './CharacterCard'
 
@@ -16,7 +16,7 @@ const prepareStateFromWord = (given_word) => {
 
 export default function WordCard(props) {
 
-    const [state, setState] = useState(prepareStateFromWord('hello'))
+    const [state, setState] = useState(prepareStateFromWord(props.value))
 
     const activationHandler = c => {
         console.log(`${c} has been activated`)
@@ -36,7 +36,7 @@ export default function WordCard(props) {
             else
             {
                 console.log('reset')
-                setState({...state, guess: '', attempt: state.attempt + 1})
+                setState({...state, guess: '', attemp: state.attemp + 1})
             }
         }
     }
@@ -44,8 +44,8 @@ export default function WordCard(props) {
     return (
         <div>
         {
-            Array.from(props.value).map(
-                (c, i) => <CharacterCard value={c} key={i} activationHandler={activationHandler}/>
+            state.chars.map(
+                (c, i) => <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt={state.attemp}/>
             )
         }
         </div>
