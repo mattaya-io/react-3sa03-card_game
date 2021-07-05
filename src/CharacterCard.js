@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 export default function CharacterCard(props){
     const [active, setActive] = useState(false)
     const activate = () => {
+        console.log(props.attempt())
         if(!active){
             setActive(true)
             props.activationHandler(props.value)
