@@ -1,11 +1,11 @@
-import React from 'react';
-import './App.css';
+import CharacterCard from './CharacterCard'
 
 function App() {
     return (
         <div>
-            Hello {"World"}
+            <CharacterCard value='h'></CharacterCard>
+            <CharacterCard value='i'></CharacterCard>
         </div>
     );
 }
-export default App;
+export default App
