@@ -1,4 +1,4 @@
-import CharacterCard from './CharacterCard'
+import WordCard from './WordCard'
 import './App.css'
 
 const word = 'Hello'
@@ -6,9 +6,7 @@ const word = 'Hello'
 function App() {
     return (
         <div>
-            {
-                Array.from(word).map((c,i) => <CharacterCard value={c} key={i} class={"card"}/>)
-            }
+            <WordCard value="hello"/>
         </div>
     );
 }
