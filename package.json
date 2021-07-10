@@ -1,5 +1,5 @@
 {
-  "name": "card-game",
+  "name": "react-3sa03-card_game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -35,5 +35,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "eslint-plugin-react": "^7.24.0"
   }
 }

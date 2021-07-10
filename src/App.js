@@ -1,13 +1,14 @@
-import WordCard from './WordCard'
-import './App.css'
+import React from 'react'
+import WordCard from './WordCard.js';
 
-const word = 'Hello'
+const word = "Hello"
 
 function App() {
     return (
         <div>
-            <WordCard value="hello"/>
+            <WordCard value={word} />
         </div>
-    );
+    )
 }
-export default App
+
+export default App;

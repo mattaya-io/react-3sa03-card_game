@@ -1,17 +1,21 @@
-import React, {useState, useEffect, useRef} from 'react';
+/* eslint-disable react/prop-types */
+import React, { useState, useEffect, useRef } from 'react'
+import './App.css';
 
-export default function CharacterCard(props){
+export default function CharacterCard(props)
+{
     const [active, setActive] = useState(false)
     const attemptRef = useRef(props.attempt)
 
     const activate = () => {
-        if(!active){
+        if(!active)
+        {
             setActive(true)
             props.activationHandler(props.value)
         }
     }
 
-    useEffect(() => { 
+    useEffect(() => {
         if(attemptRef.current != props.attempt){
             setActive(false)
             attemptRef.current = props.attempt
@@ -20,6 +24,6 @@ export default function CharacterCard(props){
 
     const className = `card ${active ? 'activeCard' : ''}`
     return (
-        <div className={className} onClick={activate}>{props.value}</div>
+        <div className={className} onClick={activate}>{ props.value }</div>
     )
 }
