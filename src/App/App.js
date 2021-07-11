@@ -75,8 +75,6 @@ function App() {
                 state.guess = gArr.toString().replaceAll(',', '')
             }
         })
-
-        console.log(state.attemptLeft)
         // check word and guess
         if(state.word.toUpperCase() == state.guess.toUpperCase())
         {
@@ -100,6 +98,7 @@ function App() {
         {
             if(!state.isWon)
             {
+                state.guess = state.word
                 setTimeout(function(){
                     alert('You lost!!!')
                     setState(prepareWord(_.shuffle(wordList)[0]))

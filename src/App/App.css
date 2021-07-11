@@ -38,9 +38,24 @@ img {
     background-color: #e9eaeb;
     font-size: 5vmin;
 }
-.activeCard {
-    color: red;
-    background: pink;
+.active-card {
+    color: transparent;
+    background: transparent;
+    border: none;
+    font-size: 5vmin;
+    cursor: default;
+}
+.active-card:hover {
+    color: transparent;
+    background: transparent;
+    border: none;
+    font-size: 5vmin;
+}
+.active-card:active {
+    color: transparent;
+    background: transparent;
+    border: none;
+    font-size: 5vmin;
 }
 .left_frame {
     box-sizing: border-box;
@@ -243,10 +258,13 @@ img {
 }
 
 @keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
+    0% {
+        transform: rotate(0deg) scale(1,1);
     }
-    to {
-        transform: rotate(360deg);
+    50% {
+        transform: rotate(180deg) scale(0.8, 0.8);
+    }
+    100% {
+        transform: rotate(360deg) scale(1,1);
     }
 }

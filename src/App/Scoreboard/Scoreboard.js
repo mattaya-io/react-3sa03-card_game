@@ -8,7 +8,6 @@ export default function Scoreboard(props)
     const attemptLeft = useRef(props.value)
     const[attempt, setAttempt] = useState(attemptLeft.current)
     useEffect(() => {
-        console.log(attemptLeft.current)
         setAttempt(props.value)
         attemptLeft.current = props.value
     })

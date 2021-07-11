@@ -10,7 +10,6 @@ export default function Monitor(props)
     const guessingWord = useRef(props.value)
     const[display, setDisplay] = useState(guessingWord.current)
     useEffect(() => {
-        console.log(guessingWord.current)
         setDisplay(props.value)
         guessingWord.current = props.value
     })
