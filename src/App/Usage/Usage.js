@@ -1,17 +1,18 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 
 export default function Usage(props) {
-
-    var sec = 0
-
-    setInterval(function(){
-        sec += 1
-        var timer = [parseInt(sec/60), parseInt(sec%60)]
-        if(timer[0] < 10) timer[0] = "0" + timer[0]
-        if(timer[1] < 10) timer[1] = "0" + timer[1]
-        document.getElementById('time').innerHTML = timer[0] + ":" + timer[1]
-    }, 1000)
+    const tempWin = useRef(props.streak)
+    const[win, setWin] = useState(tempWin.current)
+    const attemptLeft = useRef(props.value)
+    const[attempt, setAttempt] = useState(attemptLeft.current)
+    useEffect(() => {
+        setAttempt(props.value)
+        attemptLeft.current = props.value
+        setWin(props.streak)
+        tempWin.current = props.streak
+    })
 
     return (
         <div className="usage">
@@ -26,12 +27,11 @@ export default function Usage(props) {
             <div id="game-status">
                 <div className="left">
                     <span>Attempt Left: </span>
-                    <span>10</span>
+                    <span>{attempt}</span>
                 </div>
                 <div className="right">
-                    <span>Playtime: </span>
-                    <span id="time">00:00</span>
-                    <span> mins</span>
+                    <span>Win Streak: </span>
+                    <span id="win">{win}</span>
                 </div>
             </div>
         </div>

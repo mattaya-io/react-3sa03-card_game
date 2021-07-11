@@ -36,7 +36,7 @@ const wordList = [
     "masquerade",
     "teleport",
     "obey",
-    "boi"
+    "ching cheng hanji"
 ]
 
 const prepareWord = (given_word) => {
@@ -61,6 +61,8 @@ const prepareWord = (given_word) => {
 
 function App() {
     const [state, setState] = useState(prepareWord(_.shuffle(wordList)[0]))
+    const [wins, setWin] = useState(0)
+    const [ends, setEnd] = useState(false)
     const stateUpdate = (ch) => {
         var isFail = true
         // add to guess
@@ -81,7 +83,9 @@ function App() {
             state.isWon = true
             setTimeout(function(){
                 alert('You Win!!!')
-                window.location.reload()
+                setState(prepareWord(_.shuffle(wordList)[0]))
+                setWin(wins + 1)
+                setEnd(!ends)
             }, 500)
             // TO-DO
         }
@@ -98,7 +102,9 @@ function App() {
             {
                 setTimeout(function(){
                     alert('You lost!!!')
-                    window.location.reload()
+                    setState(prepareWord(_.shuffle(wordList)[0]))
+                    setWin(0)
+                    setEnd(!ends)
                 }, 500)
             }
         }
@@ -110,12 +116,12 @@ function App() {
         <div className="screen">
             <div className="top_frame">
                 <div className="left_frame">
-                    <Usage />
+                    <Usage value={state.attemptLeft} streak={wins} />
                     <Monitor value={state.guess} />
                 </div>
                 <Scoreboard value={state.attemptLeft} />
             </div>
-            <Key key="key" activationHandler={stateUpdate} />
+            <Key key="key" activationHandler={stateUpdate} ends={ends} />
         </div>
     )
 }

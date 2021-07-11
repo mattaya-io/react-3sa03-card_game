@@ -14,6 +14,12 @@ const KeyRow = [
 
 export default function Key(props)
 {
+    const tempEnd = useRef(props.ends)
+    const[end, setEnd] = useState(tempEnd.current)
+    useEffect(() => {
+        setEnd(props.ends)
+        tempEnd.current = props.ends
+    })
     const activationHandler = (ch) => {
         props.activationHandler(ch)
     }
@@ -24,7 +30,7 @@ export default function Key(props)
                 Array.from(KeyRow).map((row) => (
                     <div className="key_row">
                         {
-                            Array.from(row.toUpperCase()).map((value, i) => <CharacterCard value={value} key={i} activationHandler={activationHandler} />)
+                            Array.from(row.toUpperCase()).map((value, i) => <CharacterCard value={value} key={i} activationHandler={activationHandler} ends={end} />)
                         }
                     </div>
                 ))

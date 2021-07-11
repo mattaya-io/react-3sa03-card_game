@@ -6,10 +6,21 @@ import '../App.css';
 export default function CharacterCard(props)
 {
     const [active, setActive] = useState(false)
+    const tempEnd = useRef(props.ends)
+    useEffect(() => {
+        if(props.ends != tempEnd.current)
+        {
+            tempEnd.current = props.ends
+            setActive(false)
+        }
+    })
 
     const activate = () => {
-        setActive(!active)
-        props.activationHandler(props.value)
+        if(!active)
+        {
+            setActive(true)
+            props.activationHandler(props.value)
+        }
     }
 
     const className = `card ${active ? 'activeCard' : ''}`
