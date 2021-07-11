@@ -1,11 +1,42 @@
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .card {
-    display: inline-block;
+    display: inline-flex;
     text-align: center;
-    width: 3em;
-    font-size: 2em;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin: 2px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    width: 10vmin;
+    height: 10vmin;
+    font-size: 5vmin;
+    margin: 0.6vmin;
     user-select: none;
+    cursor: pointer;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    border: 0.3vmin solid black;
+    border-bottom: 1vmin solid black;
+    color: black;
+    background-color: white;
+}
+.card:hover {
+    border: 0.3vmin solid rgb(0, 0, 133);
+    border-bottom: 1vmin solid rgb(0, 0, 133);
+    color: rgb(0, 0, 133);
+    background-color: white;
+    font-size: 6vmin;
+}
+.card:active {
+    border: 0.3vmin solid rgb(25, 25, 173);
+    border-bottom: 0.6vmin solid rgb(25, 25, 173);
+    color: rgb(25, 25, 173);
+    background-color: #e9eaeb;
+    font-size: 5vmin;
 }
 
 .activeCard {
@@ -13,14 +44,99 @@
     background: pink;
 }
 
-.top_frame div {
-    display: inline-block;
-    height: 60%;
+.left_frame {
+    box-sizing: border-box;
+    height: 58vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 58vw;
+    margin-bottom: 2vh;
+}
+
+.usage {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    height: 36vh;
+    padding: 2vmin;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 58vw;
+    margin-bottom: 2vh;
+}
+
+.canvas {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    height: 20vh;
+    padding: 2vmin;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 58vw;
+}
+
+.canvas div {
+    display: flex;
+}
+
+.status {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    height: 58vh;
+    padding: 2vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 36vw;
+    margin-left: 2vw;
+    margin-bottom: 2vh;
+}
+
+.top_frame {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .screen {
-    width: 800px;
-    height: 600px;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2vmin;
+}
+
+.keyboard {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    width: 96vw;
+    height: 40vh;
+    padding: 2vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: footer;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .App {

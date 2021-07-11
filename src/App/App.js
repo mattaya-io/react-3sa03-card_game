@@ -3,6 +3,7 @@ import _ from 'lodash'
 import Key from './Key/Key.js';
 import Scoreboard from './Scoreboard/Scoreboard.js';
 import Monitor from './Monitor/Monitor.js';
+import Usage from './Usage/Usage.js';
 
 const wordList = [
     "test",
@@ -27,7 +28,15 @@ const wordList = [
     "zawarudo",
     "phosphorus",
     "lithium",
-    "quiche"
+    "quiche",
+    "wellbeing",
+    "ionization",
+    "yttrium",
+    "kangaroo",
+    "masquerade",
+    "teleport",
+    "obey",
+    "boi"
 ]
 
 const prepareWord = (given_word) => {
@@ -87,14 +96,17 @@ function App() {
             }
         }
 
-        setState({...state, guess: state.guess})
+        setState({...state, guess: state.guess, attemptLeft: state.attemptLeft})
     }
 
     return (
         <div className="screen">
             <div className="top_frame">
-                <Monitor value={state.guess} />
-                <Scoreboard />
+                <div className="left_frame">
+                    <Usage />
+                    <Monitor value={state.guess} />
+                </div>
+                <Scoreboard value={state.attemptLeft} />
             </div>
             <Key key="key" activationHandler={stateUpdate} />
         </div>

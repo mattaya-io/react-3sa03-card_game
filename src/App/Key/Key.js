@@ -19,10 +19,10 @@ export default function Key(props)
     }
 
     return (
-        <div>
+        <div className="keyboard">
             {
                 Array.from(KeyRow).map((row) => (
-                    <div>
+                    <div className="key_row">
                         {
                             Array.from(row.toUpperCase()).map((value, i) => <CharacterCard value={value} key={i} activationHandler={activationHandler} />)
                         }

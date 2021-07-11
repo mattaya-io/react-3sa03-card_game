@@ -11,11 +11,11 @@ export default function Monitor(props)
     const[display, setDisplay] = useState(guessingWord.current)
     useEffect(() => {
         console.log(guessingWord.current)
-        setDisplay(guessingWord.current)
+        setDisplay(props.value)
         guessingWord.current = props.value
     })
     return (
-        <div>
+        <div className="canvas">
             {
                 Array.from(props.value).map((c,i) => <CharDisplay value={c} key={i} />)
             }
