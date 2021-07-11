@@ -19,5 +19,8 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "react/prop-types": 1,
+        "no-unused-vars": 1,
+        "react/jsx-key": 1
     }
 };
