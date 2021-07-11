@@ -9,7 +9,7 @@ const wordList = [
     "test",
     "exam",
     "code",
-    "thonywhong",
+    "thony whong",
     "database",
     "operating",
     "information",
@@ -19,11 +19,11 @@ const wordList = [
     "xylem",
     "velvet",
     "wheat",
-    "informationoperation",
+    "information operation",
     "engineering",
     "rickrolled",
     "function",
-    "ctrlw",
+    "ctrl w",
     "return",
     "zawarudo",
     "phosphorus",
@@ -47,8 +47,13 @@ const prepareWord = (given_word) => {
         isWon: false
     }
 
-    Array.from(given_word).map(() => {
-        obj.guess = obj.guess + '_'
+    Array.from(given_word).map((c) => {
+        if(c.toLowerCase() != c.toUpperCase()) {
+            obj.guess = obj.guess + '_'
+        }
+        else {
+            obj.guess = obj.guess + c
+        }
     })
 
     return obj
@@ -76,6 +81,7 @@ function App() {
             state.isWon = true
             setTimeout(function(){
                 alert('You Win!!!')
+                window.location.reload()
             }, 500)
             // TO-DO
         }
@@ -92,6 +98,7 @@ function App() {
             {
                 setTimeout(function(){
                     alert('You lost!!!')
+                    window.location.reload()
                 }, 500)
             }
         }
